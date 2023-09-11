@@ -17,7 +17,7 @@
     <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
 
-    <title>My Personal Portfolio</title>
+    <title id="dynamic-title">My Personal Portfolio</title>
 </head>
 <body>
 <body class="dark-theme">
@@ -863,7 +863,7 @@
                     <a href="#portfolio" class="footer__link">Potfolio</a>
                 </li>
                 <li>
-                    <a href="#contact" class="footer__link">Contactme</a>
+                    <a href="#contact" class="footer__link">Contact</a>
                 </li>
             </ul>
 
@@ -942,6 +942,22 @@
     setInterval(() => {
         cursorElement.classList.toggle('hidden');
     }, 500);
+</script>
+
+<script>
+    const textArray = ["Welcome to My Portfolio", "Python Programmer", "Graphic Designer", "Creative Thinker", "Web Scraper"];
+    let currentIndex = 0;
+
+    // Function to update the title with changing text
+    function updateTitleWithChangingText() {
+        const titleElement = document.getElementById('dynamic-title');
+        currentIndex = (currentIndex + 1) % textArray.length;
+        titleElement.textContent = textArray[currentIndex];
+    }
+
+    // Call updateTitleWithChangingText initially and every 2.3 seconds
+    updateTitleWithChangingText();
+    setInterval(updateTitleWithChangingText, 2500);
 </script>
 
 </body>
